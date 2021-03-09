@@ -1,0 +1,56 @@
+<?php //App_Entity_Agence
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Serializer\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\ClassMetadata')),
+        clone ($p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata')),
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\Entity\\Agence',
+                'id',
+                'nomAgence',
+                'adresseAgence',
+                'archivage',
+                'userAgence',
+                'compte',
+            ],
+            'attributesMetadata' => [
+                [
+                    'id' => $o[1],
+                    'nomAgence' => $o[2],
+                    'adresseAgence' => $o[3],
+                    'archivage' => $o[4],
+                    'userAgence' => $o[5],
+                    'compte' => $o[6],
+                ],
+            ],
+            'groups' => [
+                2 => [
+                    'agence:write',
+                    'compte:read',
+                ],
+                [
+                    'agence:write',
+                    'compte:read',
+                ],
+                5 => [
+                    'agence:write',
+                    'agence:edit',
+                ],
+                [
+                    'agence:write',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

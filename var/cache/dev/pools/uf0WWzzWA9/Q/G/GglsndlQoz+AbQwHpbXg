@@ -1,0 +1,177 @@
+<?php //resource_metadata_b00a043e610dbd9099f220f6dd6a596e
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['ApiPlatform\\Core\\Metadata\\Resource\\ResourceMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Core\\Metadata\\Resource\\ResourceMetadata')),
+    ],
+    null,
+    [
+        'ApiPlatform\\Core\\Metadata\\Resource\\ResourceMetadata' => [
+            'shortName' => [
+                'Agence',
+            ],
+            'description' => [
+                '',
+            ],
+            'itemOperations' => [
+                [
+                    'get' => [
+                        'path' => '/admin/agences/{id}',
+                        'security' => 'is_granted(\'ROLE_AdminSysteme\')',
+                        'securityMessage' => 'Accès refusé !',
+                        'input' => null,
+                        'output' => null,
+                        'method' => 'GET',
+                        'stateless' => null,
+                        'input_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                        'output_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                    ],
+                    'put' => [
+                        'path' => '/adminAgence/agences/{id}',
+                        'denormalization_context' => [
+                            'groups' => [
+                                'agence:edit',
+                            ],
+                        ],
+                        'security' => 'is_granted(\'ROLE_AdminSysteme\') or is_granted(\'ROLE_AdminAgence\')',
+                        'securityMessage' => 'Accès refusé !',
+                        'input' => null,
+                        'output' => null,
+                        'method' => 'PUT',
+                        'stateless' => null,
+                        'input_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                        'output_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            'collectionOperations' => [
+                [
+                    'get' => [
+                        'path' => '/admin/agences',
+                        'security' => 'is_granted(\'ROLE_AdminSysteme\')',
+                        'securityMessage' => 'Accès refusé !',
+                        'input' => null,
+                        'output' => null,
+                        'method' => 'GET',
+                        'stateless' => null,
+                        'input_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                        'output_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                    ],
+                    'post' => [
+                        'path' => '/admin/agences',
+                        'denormalization_context' => [
+                            'groups' => [
+                                'agence:write',
+                            ],
+                        ],
+                        'security' => 'is_granted(\'ROLE_AdminSysteme\')',
+                        'securityMessage' => 'Accès refusé !',
+                        'input' => null,
+                        'output' => null,
+                        'method' => 'POST',
+                        'stateless' => null,
+                        'input_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                        'output_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            'graphql' => [
+                [
+                    'item_query' => [],
+                    'collection_query' => [],
+                    'delete' => [],
+                    'update' => [],
+                    'create' => [],
+                ],
+            ],
+            'attributes' => [
+                [
+                    'input' => null,
+                    'output' => null,
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

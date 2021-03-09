@@ -1,0 +1,108 @@
+<?php //App_Entity_Transaction
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Serializer\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\ClassMetadata')),
+        clone ($p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata')),
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\Entity\\Transaction',
+                'id',
+                'montant',
+                'dateDepot',
+                'dateRetrait',
+                'dateAnnulation',
+                'fraisEnvoie',
+                'fraisRetrait',
+                'fraisEtat',
+                'fraisSysteme',
+                'codeTransaction',
+                'userDepot',
+                'userRetrait',
+                'compteDepot',
+                'compteRetrait',
+                'clientDepot',
+                'clientRetrait',
+                'frais',
+            ],
+            'attributesMetadata' => [
+                [
+                    'id' => $o[1],
+                    'montant' => $o[2],
+                    'dateDepot' => $o[3],
+                    'dateRetrait' => $o[4],
+                    'dateAnnulation' => $o[5],
+                    'fraisEnvoie' => $o[6],
+                    'fraisRetrait' => $o[7],
+                    'fraisEtat' => $o[8],
+                    'fraisSysteme' => $o[9],
+                    'codeTransaction' => $o[10],
+                    'userDepot' => $o[11],
+                    'userRetrait' => $o[12],
+                    'compteDepot' => $o[13],
+                    'compteRetrait' => $o[14],
+                    'clientDepot' => $o[15],
+                    'clientRetrait' => $o[16],
+                    'frais' => $o[17],
+                ],
+            ],
+            'groups' => [
+                2 => [
+                    'transc:write',
+                ],
+                [
+                    'transc:write',
+                ],
+                [
+                    'transc:write',
+                ],
+                6 => [
+                    'transc:write',
+                ],
+                [
+                    'transc:write',
+                ],
+                [
+                    'user:read',
+                    'transc:write',
+                ],
+                [
+                    'transc:write',
+                ],
+                [
+                    'transc:write',
+                ],
+                15 => [
+                    'transc:write',
+                ],
+                [
+                    'transc:write',
+                ],
+                [
+                    'transc:write',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

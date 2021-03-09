@@ -1,0 +1,63 @@
+<?php //App_Entity_Compte
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Serializer\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\ClassMetadata')),
+        clone ($p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata')),
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\Entity\\Compte',
+                'id',
+                'numCompte',
+                'solde',
+                'depots',
+                'retraits',
+                'rechargments',
+                'agence',
+                'adminSyst',
+                'archivage',
+            ],
+            'attributesMetadata' => [
+                [
+                    'id' => $o[1],
+                    'numCompte' => $o[2],
+                    'solde' => $o[3],
+                    'depots' => $o[4],
+                    'retraits' => $o[5],
+                    'rechargments' => $o[6],
+                    'agence' => $o[7],
+                    'adminSyst' => $o[8],
+                    'archivage' => $o[9],
+                ],
+            ],
+            'groups' => [
+                1 => [
+                    'transc:write',
+                ],
+                3 => [
+                    'compte:read',
+                ],
+                7 => [
+                    'compte:read',
+                    'transc:write',
+                ],
+                9 => [
+                    'compte:write',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];
