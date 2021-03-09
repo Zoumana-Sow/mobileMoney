@@ -1,3 +1,19 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+api_login_check:
+  path: /api/login_check
+  methods: ['POST']
+
+
+##creation user
+#create_users:
+#  path: /api/admin/users
+#  controller: App\Controller\UserController::addUser
+#  methods: [ 'POST' ]
+##creation user agence
+#addAgence_users:
+#  path: /api/adminAgence/users
+#  controller: App\Controller\UserController::addUserAgence
+#  methods: [ 'POST' ]
+
