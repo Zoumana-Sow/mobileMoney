@@ -1,76 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d8b98c7f-42f6-4671-adeb-22346e48a86c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/mobileMoney.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/api_platform.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/nelmio_cors.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/routes/api_platform.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210301013158.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210301015138.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210301015735.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210301120016.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210301120413.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210301122331.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210301130848.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210301173357.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210301195512.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210301200143.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210301200814.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210301202403.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210301204936.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210302115541.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210303005248.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210303140718.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210303140807.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210303141108.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210303183737.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210303183901.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210303184215.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210303184254.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210303184353.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210303190054.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210303194041.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210303194420.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/TransactionController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixture.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataPersister/ComptePersister.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataPersister/DepotPersister.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataPersister/UserDataPersister.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Agence.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Client.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Clients.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Compte.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Depot.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Profil.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Transaction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/AgenceRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/ClientRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/ClientsRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/CompteRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/DepotRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/ProfilRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/TransactionRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/transaction/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/user/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-    </list>
+    <list default="true" id="d8b98c7f-42f6-4671-adeb-22346e48a86c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -236,7 +167,7 @@
       <workItem from="1614604345191" duration="1164000" />
       <workItem from="1614605965707" duration="3306000" />
       <workItem from="1614679288599" duration="40597000" />
-      <workItem from="1615249198739" duration="454000" />
+      <workItem from="1615249198739" duration="890000" />
     </task>
     <servers />
   </component>
