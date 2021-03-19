@@ -24,19 +24,19 @@ class Client
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"transc:write"})
+     * @Groups({"transc:write", "transc:read"})
      */
     private $nomComplet;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"transc:write"})
+     * @Groups({"transc:write", "transc:read"})
      */
     private $phone;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @Groups({"transc:write"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"transc:write", "transc:read"})
      */
     private $CNI;
 

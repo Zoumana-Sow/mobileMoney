@@ -68,9 +68,11 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             'groups' => [
                 2 => [
                     'transc:write',
+                    'transc:read',
                 ],
                 [
                     'transc:write',
+                    'transc:read',
                 ],
                 [
                     'transc:write',
@@ -93,9 +95,11 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 ],
                 15 => [
                     'transc:write',
+                    'transc:read',
                 ],
                 [
                     'transc:write',
+                    'transc:read',
                 ],
                 [
                     'transc:write',

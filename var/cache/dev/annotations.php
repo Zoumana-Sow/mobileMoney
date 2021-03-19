@@ -137,18 +137,12 @@ return [[
 '%5B%5BC%5DApp%5CEntity%5CClient%24nomComplet%5D%5B1%5D' => 2,
 '%5BApp%5CEntity%5CClient%24phone%5D%5B1%5D' => 10,
 '%5B%5BC%5DApp%5CEntity%5CClient%24phone%5D%5B1%5D' => 2,
-'%5BApp%5CEntity%5CClient%24CNI%5D%5B1%5D' => 10,
+'%5BApp%5CEntity%5CClient%24CNI%5D%5B1%5D' => 11,
 '%5B%5BC%5DApp%5CEntity%5CClient%24CNI%5D%5B1%5D' => 2,
-'%5BApp%5CEntity%5CClient%24depots%5D%5B1%5D' => 11,
+'%5BApp%5CEntity%5CClient%24depots%5D%5B1%5D' => 12,
 '%5B%5BC%5DApp%5CEntity%5CClient%24depots%5D%5B1%5D' => 2,
-'%5BApp%5CEntity%5CClient%24retraits%5D%5B1%5D' => 12,
+'%5BApp%5CEntity%5CClient%24retraits%5D%5B1%5D' => 13,
 '%5B%5BC%5DApp%5CEntity%5CClient%24retraits%5D%5B1%5D' => 2,
-'%5BApp%5CEntity%5CClients%5D%5B1%5D' => 13,
-'%5B%5BC%5DApp%5CEntity%5CClients%5D%5B1%5D' => 2,
-'%5BApp%5CEntity%5CClients%23getId%5D%5B1%5D' => 1,
-'%5B%5BC%5DApp%5CEntity%5CClients%23getId%5D%5B1%5D' => 2,
-'%5BApp%5CEntity%5CClients%24id%5D%5B1%5D' => 4,
-'%5B%5BC%5DApp%5CEntity%5CClients%24id%5D%5B1%5D' => 2,
 '%5BApp%5CEntity%5CCompte%5D%5B1%5D' => 14,
 '%5B%5BC%5DApp%5CEntity%5CCompte%5D%5B1%5D' => 2,
 '%5BApp%5CEntity%5CCompte%23__construct%5D%5B1%5D' => 1,
@@ -974,7 +968,7 @@ return [[
 
 0 => 'N;',
 1 => [],
-2 => 1614804068,
+2 => 1615999775,
 3 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
@@ -1245,6 +1239,37 @@ return [[
 11 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
+            clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
+            clone ($p['Symfony\\Component\\Serializer\\Annotation\\Groups'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Annotation\\Groups')),
+        ],
+        null,
+        [
+            'stdClass' => [
+                'length' => [
+                    255,
+                ],
+                'nullable' => [
+                    true,
+                ],
+            ],
+            'Symfony\\Component\\Serializer\\Annotation\\Groups' => [
+                'groups' => [
+                    1 => [
+                        'transc:write',
+                    ],
+                ],
+            ],
+        ],
+        [
+            $o[0],
+            $o[1],
+        ],
+        []
+    );
+},
+12 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
             clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\OneToMany'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\OneToMany')),
             clone ($p['Symfony\\Component\\Serializer\\Annotation\\Groups'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Annotation\\Groups')),
         ],
@@ -1273,7 +1298,7 @@ return [[
         []
     );
 },
-12 => static function () {
+13 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\OneToMany'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\OneToMany')),
@@ -1300,25 +1325,6 @@ return [[
         [
             $o[0],
             $o[1],
-        ],
-        []
-    );
-},
-13 => static function () {
-    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
-        $o = [
-            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Entity'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Entity')),
-        ],
-        null,
-        [
-            'stdClass' => [
-                'repositoryClass' => [
-                    'App\\Repository\\ClientsRepository',
-                ],
-            ],
-        ],
-        [
-            $o[0],
         ],
         []
     );

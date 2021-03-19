@@ -12,6 +12,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass=TransactionRepository::class)
  * @ApiResource (
+ *     normalizationContext={"groups"={"transc:read"}},
  *     denormalizationContext={"groups"={"transc:write", "retrait:edit"}},
  *
  * )
@@ -27,13 +28,13 @@ class Transaction
 
     /**
      * @ORM\Column(type="integer")
-     * @Groups ({"transc:write"})
+     * @Groups ({"transc:write", "transc:read"})
      */
     private $montant;
 
     /**
      * @ORM\Column(type="date")
-     * @Groups ({"transc:write"})
+     * @Groups ({"transc:write", "transc:read"})
      */
     private $dateDepot;
 
@@ -105,14 +106,14 @@ class Transaction
     /**
      * @ORM\ManyToOne(targetEntity=Client::class, inversedBy="depots", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
-     * @Groups ({"transc:write"})
+     * @Groups ({"transc:write", "transc:read"})
      */
     private $clientDepot;
 
     /**
      * @ORM\ManyToOne(targetEntity=Client::class, inversedBy="retraits", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
-     * @Groups ({"transc:write"})
+     * @Groups ({"transc:write", "transc:read"})
      */
     private $clientRetrait;
 

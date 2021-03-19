@@ -17,6 +17,7 @@ return [
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     'depot' => [[], ['_controller' => 'App\\Controller\\TransactionController::depotUser'], [], [['text', '/api/transaction/depots']], [], []],
     'retrait' => [[], ['_controller' => 'App\\Controller\\TransactionController::retraitUser'], [], [['text', '/api/transaction/retraits']], [], []],
+    'code' => [['code'], ['_controller' => 'App\\Controller\\TransactionController::codeTransaction'], [], [['variable', '/', '[^/]++', 'code', true], ['text', '/api/transaction']], [], []],
     'create_users' => [[], ['_controller' => 'App\\Controller\\UserController::addUserAgence'], [], [['text', '/api/admin/users']], [], []],
     'api_entrypoint' => [['index', '_format'], ['_controller' => 'api_platform.action.entrypoint', '_format' => '', '_api_respond' => 'true', 'index' => 'index'], ['index' => 'index'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', 'index', 'index', true], ['text', '/api']], [], []],
     'api_doc' => [['_format'], ['_controller' => 'api_platform.action.documentation', '_format' => '', '_api_respond' => 'true'], [], [['variable', '.', '[^/]++', '_format', true], ['text', '/api/docs']], [], []],

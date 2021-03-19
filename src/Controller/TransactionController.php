@@ -34,7 +34,7 @@ class TransactionController extends AbstractController
      */
     public function depotUser(Request $request, SerializerInterface $serializer, EntityManagerInterface $em)
     {
-
+//          return $this->json($this->getUser());
         $compte = $this->getUser()->getAgenceUser()->getCompte();
 
         $data = \json_decode($request->getContent(), true);
@@ -71,7 +71,6 @@ class TransactionController extends AbstractController
     {
 
         $compte = $this->getUser()->getAgenceUser()->getCompte();
-        dd($compte);
 
         $data = \json_decode($request->getContent(), true);
         $transaction=$repo->findOneBy(['codeTransaction'=>$data['codeTransaction']]);
@@ -80,22 +79,39 @@ class TransactionController extends AbstractController
                 'message' => 'Votre code est invalide',
             ]);
         }
+        if ($transaction->getDateRetrait()){
+            return $this->json(
+                [
+                    'message' => 'L\'argent est déjà retirer',
+                ]);
+        }
+        if ($transaction->getDateAnnulation()){
+            return $this->json([
+                'message' => 'La transaction a été annuler',
+                ]);
+        }
 
         $transaction->setDateRetrait(new \DateTime);
         $transaction->setUserRetrait($this->getUser());
+        $transaction->getClientRetrait()->setCNI($data['CNI']);
 
-        $compte->setSolde($compte->getSolde()+$transaction->getMontant());
+        $compte->setSolde($compte->getSolde()+$transaction->getMontant()+$transaction->getFraisRetrait());
 
-        $transaction = $serializer->denormalize($data, "App\Entity\Transaction", true);
+//        $transaction = $serializer->denormalize($data, "App\Entity\Transaction", true);
 
         $transaction->setCompteRetrait($compte);
 
-//        dd($transaction);
 
         $em->flush();
         return $this->json([
             'message' => 'succès',
         ]);
 
+    }
+    /**
+     * @Route("/api/transaction/{code}", name="code", methods={"GET"})
+     */
+    public function codeTransaction($code, TransactionRepository $resp){
+        return $this->json($resp->findOneBy(['codeTransaction'=>$code]));
     }
 }
