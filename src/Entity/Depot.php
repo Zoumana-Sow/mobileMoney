@@ -35,7 +35,7 @@ class Depot
 
     /**
      * @ORM\Column(type="date")
-     * @Groups ({"depot:write"})
+     * @Groups ({"depot:write", "usersall:read"})
      */
     private $dateDate;
 
@@ -49,7 +49,6 @@ class Depot
     /**
      * @ORM\ManyToOne(targetEntity=Compte::class, inversedBy="rechargments", cascade={"persist", "remove"})
      * @Groups ({"depot:write"})
-     *
      */
     private $compte;
 

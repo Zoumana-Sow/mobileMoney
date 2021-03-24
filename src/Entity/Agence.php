@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiSubresource;
 use App\Repository\AgenceRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -15,20 +16,22 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ApiResource(
  *     collectionOperations={
  *     "get"={
- *     "path"="/admin/agences",
- *                "security"="is_granted('ROLE_AdminSysteme')",
- *               "securityMessage"="Accès refusé !",
+ *          "path"="/admin/agences",
+ *          "normalization_context"={"groups"={"allagences:read"}},
  *     },
- *     "post"={ "path"="/admin/agences",
+ *     "post"={
+ *               "path"="/admin/agences",
  *               "denormalization_context"={"groups"={"agence:write"}},
- *                "security"="is_granted('ROLE_AdminSysteme')",
+ *               "security"="is_granted('ROLE_AdminSysteme')",
  *               "securityMessage"="Accès refusé !",
  *         },
  *
  *     },
  *     itemOperations={
- *          "get"={"path"="/admin/agences/{id}",
- *             "security"="is_granted('ROLE_AdminSysteme')",
+ *
+ *           "get"={
+ *               "normalization_context"={"groups"={"mestransac:read"}},
+ *               "path"="/admin/agences/{id}",
  *               "securityMessage"="Accès refusé !",
  * },
  *          "put"={"path"="/adminAgence/agences/{id}",
@@ -45,18 +48,19 @@ class Agence
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @groups({"allagences:read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups ({"agence:write", "compte:read"})
+     * @Groups ({"agence:write", "usersall:read", "allagences:read"})
      */
     private $nomAgence;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups ({"agence:write", "compte:read"})
+     * @Groups ({"agence:write", "usersall:read"})
      */
     private $adresseAgence;
 
@@ -73,7 +77,8 @@ class Agence
 
     /**
      * @ORM\OneToOne(targetEntity=Compte::class, mappedBy="agence", cascade={"persist", "remove"})
-     * @Groups ({"agence:write"})
+     * @Groups ({"usersall:read", "agence:write", "mestransac:read", "allagences:read"})
+     * @ApiSubresource ()
      */
     private $compte;
 

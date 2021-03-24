@@ -4,6 +4,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
     $o = [
         clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['ApiPlatform\\Core\\Metadata\\Property\\PropertyMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Core\\Metadata\\Property\\PropertyMetadata')),
         clone ($p['Symfony\\Component\\PropertyInfo\\Type'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\PropertyInfo\\Type')),
+        clone ($p['ApiPlatform\\Core\\Metadata\\Property\\SubresourceMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Core\\Metadata\\Property\\SubresourceMetadata')),
     ],
     null,
     [
@@ -29,6 +30,9 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             'identifier' => [
                 false,
             ],
+            'subresource' => [
+                $o[2],
+            ],
             'initializable' => [
                 false,
             ],
@@ -45,6 +49,14 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             ],
             'collection' => [
                 1 => false,
+            ],
+        ],
+        'ApiPlatform\\Core\\Metadata\\Property\\SubresourceMetadata' => [
+            'resourceClass' => [
+                2 => 'App\\Entity\\Compte',
+            ],
+            'collection' => [
+                2 => false,
             ],
         ],
     ],

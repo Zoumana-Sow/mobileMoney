@@ -15,17 +15,50 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             ],
             'itemOperations' => [
                 [
-                    'get' => [
-                        'security' => 'is_granted(\'ROLE_AdminSysteme\')',
-                        'denormalization_context' => [
+                    'connect' => [
+                        'method' => 'GET',
+                        'normalization_context' => [
                             'groups' => [
-                                'user:edit',
+                                'usersall:read',
                             ],
                         ],
-                        'security_message' => 'vous n\'avez pas accès a cette page',
+                        'route_name' => 'connected',
                         'input' => null,
                         'output' => null,
+                        'stateless' => null,
+                        'input_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                        'output_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                    ],
+                    'get' => [
                         'method' => 'GET',
+                        'path' => '/users/{id}',
+                        'normalization_context' => [
+                            'groups' => [
+                                'user:read',
+                            ],
+                        ],
+                        'input' => null,
+                        'output' => null,
                         'stateless' => null,
                         'input_formats' => [
                             'jsonld' => [
@@ -108,6 +141,14 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 [
                     'get' => [
                         'method' => 'GET',
+                        'path' => '/users',
+                        'normalization_context' => [
+                            'groups' => [
+                                'usersall:read',
+                            ],
+                        ],
+                        'input' => null,
+                        'output' => null,
                         'stateless' => null,
                         'input_formats' => [
                             'jsonld' => [
@@ -177,16 +218,6 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             ],
             'attributes' => [
                 [
-                    'normalization_context' => [
-                        'groups' => [
-                            'user:read',
-                        ],
-                    ],
-                    'denormalization_context' => [
-                        'groups' => [
-                            'user:write',
-                        ],
-                    ],
                     'route_prefix' => '/admin',
                     'input' => null,
                     'output' => null,

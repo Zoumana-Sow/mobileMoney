@@ -15,8 +15,11 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             ],
             'itemOperations' => [
                 [
-                    'get' => [
+                    'get_commission' => [
+                        'path' => '/commission/{id}',
                         'method' => 'GET',
+                        'input' => null,
+                        'output' => null,
                         'stateless' => null,
                         'input_formats' => [
                             'jsonld' => [
@@ -27,78 +30,6 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                             ],
                             'html' => [
                                 'text/html',
-                            ],
-                        ],
-                        'output_formats' => [
-                            'jsonld' => [
-                                'application/ld+json',
-                            ],
-                            'json' => [
-                                'application/json',
-                            ],
-                            'html' => [
-                                'text/html',
-                            ],
-                        ],
-                    ],
-                    'delete' => [
-                        'method' => 'DELETE',
-                        'stateless' => null,
-                        'input_formats' => [
-                            'jsonld' => [
-                                'application/ld+json',
-                            ],
-                            'json' => [
-                                'application/json',
-                            ],
-                            'html' => [
-                                'text/html',
-                            ],
-                        ],
-                        'output_formats' => [
-                            'jsonld' => [
-                                'application/ld+json',
-                            ],
-                            'json' => [
-                                'application/json',
-                            ],
-                            'html' => [
-                                'text/html',
-                            ],
-                        ],
-                    ],
-                    'put' => [
-                        'method' => 'PUT',
-                        'stateless' => null,
-                        'input_formats' => [
-                            'jsonld' => [
-                                'application/ld+json',
-                            ],
-                            'json' => [
-                                'application/json',
-                            ],
-                            'html' => [
-                                'text/html',
-                            ],
-                        ],
-                        'output_formats' => [
-                            'jsonld' => [
-                                'application/ld+json',
-                            ],
-                            'json' => [
-                                'application/json',
-                            ],
-                            'html' => [
-                                'text/html',
-                            ],
-                        ],
-                    ],
-                    'patch' => [
-                        'method' => 'PATCH',
-                        'stateless' => null,
-                        'input_formats' => [
-                            'json' => [
-                                'application/merge-patch+json',
                             ],
                         ],
                         'output_formats' => [
@@ -185,6 +116,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                     'normalization_context' => [
                         'groups' => [
                             'transc:read',
+                            'commission:read',
                         ],
                     ],
                     'denormalization_context' => [

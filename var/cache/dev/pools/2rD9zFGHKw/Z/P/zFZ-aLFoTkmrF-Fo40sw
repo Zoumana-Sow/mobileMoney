@@ -16,7 +16,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                     .'hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.',
             ],
             'readable' => [
-                false,
+                true,
             ],
             'writable' => [
                 false,

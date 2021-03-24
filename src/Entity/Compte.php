@@ -12,14 +12,16 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass=CompteRepository::class)
  * @ApiResource (
- *     attributes={
- *      "security" = "is_granted('ROLE_AdminSysteme')",
- *      "security_message" = "vous n'avez pas accès a cette page",
- *     "normalization_context"={"groups"={"compte:read"}},
- *     "denormalization_context"={"groups"={"compte:write"}}
- *   },
  *    routePrefix="/admin",
- * )
+ *     collectionOperations={
+ *     "get"={
+ *       "security" = "is_granted('ROLE_AdminSysteme')",
+ *      "security_message" = "vous n'avez pas accès a cette page",
+ *     },
+ *     },
+ *     itemOperations={
+ *     "get",
+ *     }
  * )
  */
 class Compte
@@ -28,29 +30,31 @@ class Compte
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"transc:write"})
+     * @Groups({"usersall:read", "transc:write", "agence:write", "depot:write", "allagences:read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     *
+     * @Groups ({"allagences:read", "depot:write"})
      */
     private $numCompte;
 
     /**
      * @ORM\Column(type="integer")
-     * @Groups({"compte:read"})
+     * @Groups({"agence:write", "usersall:read"})
      */
     private $solde;
 
     /**
      * @ORM\OneToMany(targetEntity=Transaction::class, mappedBy="compteDepot")
+     * @Groups ({"mestransac:read"})
      */
     private $depots;
 
     /**
      * @ORM\OneToMany(targetEntity=Transaction::class, mappedBy="compteRetrait")
+     * @Groups ({"mestransac:read"})
      */
     private $retraits;
 
@@ -65,6 +69,7 @@ class Compte
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="comptes")
+     * @Groups({"compte:read"})
      */
     private $adminSyst;
 

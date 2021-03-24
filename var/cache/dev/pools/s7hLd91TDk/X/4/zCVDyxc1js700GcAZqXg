@@ -1,3 +1,117 @@
 <?php //subresource_operations_06cf21d6b3a726a1deadff4ee9d763bd
 
-return [PHP_INT_MAX, []];
+return [PHP_INT_MAX, [
+    'api_users_depots_get_subresource' => [
+        'property' => 'depots',
+        'collection' => true,
+        'resource_class' => 'App\\Entity\\Transaction',
+        'shortNames' => [
+            'Transaction',
+            'User',
+        ],
+        'identifiers' => [
+            'id' => [
+                'App\\Entity\\User',
+                'id',
+                true,
+            ],
+        ],
+        'operation_name' => 'depots_get_subresource',
+        'route_name' => 'api_users_depots_get_subresource',
+        'path' => '/admin/users/{id}/depots.{_format}',
+        'defaults' => [],
+        'requirements' => [],
+        'options' => [],
+        'host' => '',
+        'schemes' => [],
+        'condition' => '',
+        'controller' => null,
+        'stateless' => null,
+    ],
+    'api_users_retraits_get_subresource' => [
+        'property' => 'retraits',
+        'collection' => true,
+        'resource_class' => 'App\\Entity\\Transaction',
+        'shortNames' => [
+            'Transaction',
+            'User',
+        ],
+        'identifiers' => [
+            'id' => [
+                'App\\Entity\\User',
+                'id',
+                true,
+            ],
+        ],
+        'operation_name' => 'retraits_get_subresource',
+        'route_name' => 'api_users_retraits_get_subresource',
+        'path' => '/admin/users/{id}/retraits.{_format}',
+        'defaults' => [],
+        'requirements' => [],
+        'options' => [],
+        'host' => '',
+        'schemes' => [],
+        'condition' => '',
+        'controller' => null,
+        'stateless' => null,
+    ],
+    'api_users_agence_user_get_subresource' => [
+        'property' => 'agenceUser',
+        'collection' => false,
+        'resource_class' => 'App\\Entity\\Agence',
+        'shortNames' => [
+            'Agence',
+            'User',
+        ],
+        'identifiers' => [
+            'id' => [
+                'App\\Entity\\User',
+                'id',
+                true,
+            ],
+        ],
+        'operation_name' => 'agence_user_get_subresource',
+        'route_name' => 'api_users_agence_user_get_subresource',
+        'path' => '/admin/users/{id}/agence_user.{_format}',
+        'defaults' => [],
+        'requirements' => [],
+        'options' => [],
+        'host' => '',
+        'schemes' => [],
+        'condition' => '',
+        'controller' => null,
+        'stateless' => null,
+    ],
+    'api_users_agence_user_compte_get_subresource' => [
+        'property' => 'compte',
+        'collection' => false,
+        'resource_class' => 'App\\Entity\\Compte',
+        'shortNames' => [
+            'Compte',
+            'Agence',
+        ],
+        'identifiers' => [
+            'id' => [
+                'App\\Entity\\User',
+                'id',
+                true,
+            ],
+            'agenceUser' => [
+                'App\\Entity\\Agence',
+                'id',
+                false,
+            ],
+        ],
+        'operation_name' => 'agence_user_compte_get_subresource',
+        'route_name' => 'api_users_agence_user_compte_get_subresource',
+        'path' => '/admin/users/{id}/agence_user/compte.{_format}',
+        'defaults' => [],
+        'requirements' => [],
+        'options' => [],
+        'host' => '',
+        'schemes' => [],
+        'condition' => '',
+        'controller' => null,
+        'stateless' => null,
+    ],
+]];

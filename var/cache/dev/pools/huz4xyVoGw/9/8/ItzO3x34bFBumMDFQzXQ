@@ -69,16 +69,22 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 2 => [
                     'transc:write',
                     'transc:read',
+                    'mestransac:read',
                 ],
                 [
                     'transc:write',
                     'transc:read',
+                    'commission:read',
+                    'mestransac:read',
                 ],
                 [
                     'transc:write',
+                    'commission:read',
+                    'mestransac:read',
                 ],
                 6 => [
                     'transc:write',
+                    'commission:read',
                 ],
                 [
                     'transc:write',
@@ -92,6 +98,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 ],
                 [
                     'transc:write',
+                    'transc:read',
                 ],
                 15 => [
                     'transc:write',

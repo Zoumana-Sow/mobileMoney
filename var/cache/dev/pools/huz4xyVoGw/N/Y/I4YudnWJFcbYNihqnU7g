@@ -72,65 +72,66 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 ],
             ],
             'groups' => [
-                2 => [
+                1 => [
+                    'usersall:read',
+                ],
+                [
                     'agence:write',
-                    'user:write',
                     'profil:read',
                     'transc:write',
+                    'usersall:read',
                 ],
                 4 => [
                     'agence:write',
-                    'user:write',
                 ],
                 [
                     'agence:write',
-                    'user:write',
+                    'profil:read',
+                    'transc:write',
+                    'usersall:read',
+                ],
+                [
+                    'agence:write',
+                    'profil:read',
+                    'transc:write',
+                    'usersall:read',
+                ],
+                [
+                    'agence:write',
+                    'profil:read',
+                    'transc:write',
+                    'usersall:read',
+                ],
+                [
+                    'agence:write',
                     'profil:read',
                     'transc:write',
                 ],
                 [
-                    'agence:write',
-                    'user:write',
-                    'profil:read',
-                    'transc:write',
+                    'compte:read',
+                    'usersall:read',
                 ],
                 [
                     'agence:write',
-                    'user:write',
                     'profil:read',
                     'transc:write',
-                ],
-                [
-                    'agence:write',
-                    'user:write',
-                    'profil:read',
-                    'transc:write',
-                ],
-                [
-                    'user:write',
-                ],
-                [
-                    'agence:write',
-                    'user:write',
-                    'profil:read',
-                    'transc:write',
+                    'users:read',
                 ],
                 12 => [
-                    'user:read',
                     'transc:write',
                 ],
                 [
-                    'user:read',
                     'transc:write',
                 ],
                 [
                     'agence:write',
-                    'user:write',
                     'transc:write',
                 ],
-                16 => [
-                    'user:edit',
-                    'user:read',
+                [
+                    'usersall:read',
+                ],
+                [
+                    'usersall:read',
                 ],
             ],
         ],

@@ -74,34 +74,42 @@ class TransactionController extends AbstractController
 
         $data = \json_decode($request->getContent(), true);
         $transaction=$repo->findOneBy(['codeTransaction'=>$data['codeTransaction']]);
-        if (!$transaction) {
+        if ($transaction){
+           if ($transaction->getDateRetrait() === null){
+               $transaction->setDateRetrait(new \DateTime);
+               $transaction->setUserRetrait($this->getUser());
+               $transaction->getClientRetrait()->setCNI($data['CNI']);
+
+               $compte->setSolde($compte->getSolde()+$transaction->getMontant()+$transaction->getFraisRetrait());
+
+//        $transaction = $serializer->denormalize($data, "App\Entity\Transaction", true);
+
+               $transaction->setCompteRetrait($compte);
+
+               $em->persist($transaction);
+           }else{
+               return $this->json(
+                   [
+                       'message' => 'L\'argent est déjà retirer',
+                   ]);
+           }
+        }else{
             return $this->json([
                 'message' => 'Votre code est invalide',
             ]);
         }
-        if ($transaction->getDateRetrait()){
-            return $this->json(
-                [
-                    'message' => 'L\'argent est déjà retirer',
-                ]);
-        }
-        if ($transaction->getDateAnnulation()){
-            return $this->json([
-                'message' => 'La transaction a été annuler',
-                ]);
-        }
-
-        $transaction->setDateRetrait(new \DateTime);
-        $transaction->setUserRetrait($this->getUser());
-        $transaction->getClientRetrait()->setCNI($data['CNI']);
-
-        $compte->setSolde($compte->getSolde()+$transaction->getMontant()+$transaction->getFraisRetrait());
-
-//        $transaction = $serializer->denormalize($data, "App\Entity\Transaction", true);
-
-        $transaction->setCompteRetrait($compte);
-
-
+//        if (!$transaction) {
+//            return $this->json([
+//                'message' => 'Votre code est invalide',
+//            ]);
+//        }
+//        if ($transaction->getDateRetrait()){
+//        }
+//        if ($transaction->getDateAnnulation()){
+//            return $this->json([
+//                'message' => 'La transaction a été annuler',
+//                ]);
+//        }
         $em->flush();
         return $this->json([
             'message' => 'succès',

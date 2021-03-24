@@ -12,6 +12,8 @@ use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -89,5 +91,12 @@ class UserController extends AbstractController
         $this->em->flush();
         fclose($avatar);
         return $this->json("success",201);
+    }
+    /**
+     * @Route("/api/admin/users/connected", name="connected",methods={"GET"})
+     */
+    public function connected(TokenStorageInterface $token){
+        $Isconnect = $token->getToken()->getUser();
+        return $this->json($Isconnect);
     }
 }

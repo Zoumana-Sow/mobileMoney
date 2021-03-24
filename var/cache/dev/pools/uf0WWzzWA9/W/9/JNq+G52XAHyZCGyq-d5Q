@@ -41,110 +41,16 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                             ],
                         ],
                     ],
-                    'delete' => [
-                        'method' => 'DELETE',
-                        'stateless' => null,
-                        'input_formats' => [
-                            'jsonld' => [
-                                'application/ld+json',
-                            ],
-                            'json' => [
-                                'application/json',
-                            ],
-                            'html' => [
-                                'text/html',
-                            ],
-                        ],
-                        'output_formats' => [
-                            'jsonld' => [
-                                'application/ld+json',
-                            ],
-                            'json' => [
-                                'application/json',
-                            ],
-                            'html' => [
-                                'text/html',
-                            ],
-                        ],
-                    ],
-                    'put' => [
-                        'method' => 'PUT',
-                        'stateless' => null,
-                        'input_formats' => [
-                            'jsonld' => [
-                                'application/ld+json',
-                            ],
-                            'json' => [
-                                'application/json',
-                            ],
-                            'html' => [
-                                'text/html',
-                            ],
-                        ],
-                        'output_formats' => [
-                            'jsonld' => [
-                                'application/ld+json',
-                            ],
-                            'json' => [
-                                'application/json',
-                            ],
-                            'html' => [
-                                'text/html',
-                            ],
-                        ],
-                    ],
-                    'patch' => [
-                        'method' => 'PATCH',
-                        'stateless' => null,
-                        'input_formats' => [
-                            'json' => [
-                                'application/merge-patch+json',
-                            ],
-                        ],
-                        'output_formats' => [
-                            'jsonld' => [
-                                'application/ld+json',
-                            ],
-                            'json' => [
-                                'application/json',
-                            ],
-                            'html' => [
-                                'text/html',
-                            ],
-                        ],
-                    ],
                 ],
             ],
             'collectionOperations' => [
                 [
                     'get' => [
+                        'security' => 'is_granted(\'ROLE_AdminSysteme\')',
+                        'security_message' => 'vous n\'avez pas accès a cette page',
+                        'input' => null,
+                        'output' => null,
                         'method' => 'GET',
-                        'stateless' => null,
-                        'input_formats' => [
-                            'jsonld' => [
-                                'application/ld+json',
-                            ],
-                            'json' => [
-                                'application/json',
-                            ],
-                            'html' => [
-                                'text/html',
-                            ],
-                        ],
-                        'output_formats' => [
-                            'jsonld' => [
-                                'application/ld+json',
-                            ],
-                            'json' => [
-                                'application/json',
-                            ],
-                            'html' => [
-                                'text/html',
-                            ],
-                        ],
-                    ],
-                    'post' => [
-                        'method' => 'POST',
                         'stateless' => null,
                         'input_formats' => [
                             'jsonld' => [
@@ -182,18 +88,6 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             ],
             'attributes' => [
                 [
-                    'security' => 'is_granted(\'ROLE_AdminSysteme\')',
-                    'security_message' => 'vous n\'avez pas accès a cette page',
-                    'normalization_context' => [
-                        'groups' => [
-                            'compte:read',
-                        ],
-                    ],
-                    'denormalization_context' => [
-                        'groups' => [
-                            'compte:write',
-                        ],
-                    ],
                     'route_prefix' => '/admin',
                     'input' => null,
                     'output' => null,

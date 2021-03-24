@@ -16,8 +16,12 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             'itemOperations' => [
                 [
                     'get' => [
+                        'normalization_context' => [
+                            'groups' => [
+                                'mestransac:read',
+                            ],
+                        ],
                         'path' => '/admin/agences/{id}',
-                        'security' => 'is_granted(\'ROLE_AdminSysteme\')',
                         'securityMessage' => 'Accès refusé !',
                         'input' => null,
                         'output' => null,
@@ -88,8 +92,11 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 [
                     'get' => [
                         'path' => '/admin/agences',
-                        'security' => 'is_granted(\'ROLE_AdminSysteme\')',
-                        'securityMessage' => 'Accès refusé !',
+                        'normalization_context' => [
+                            'groups' => [
+                                'allagences:read',
+                            ],
+                        ],
                         'input' => null,
                         'output' => null,
                         'method' => 'GET',

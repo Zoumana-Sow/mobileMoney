@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiSubresource;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -13,14 +14,14 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name="`user`")
- * @ApiResource(attributes={
- *
- *     "normalization_context"={"groups"={"user:read"}},
- *     "denormalization_context"={"groups"={"user:write"}}
- *   },
+ * @ApiResource(
  *    routePrefix="/admin",
  *     collectionOperations={
- *     "get",
+ *     "get"={
+ *     "method"= "GET",
+ *     "path" = "/users",
+ *     "normalization_context"={"groups"={"usersall:read"}},
+ *     },
  *     "create_users"={
  *     "security" = "is_granted('ROLE_AdminSysteme')",
  *      "security_message" = "vous n'avez pas accès a cette page",
@@ -30,10 +31,15 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *     },
  *
  *     itemOperations={
+ *     "connect"={
+ *          "method"= "GET",
+ *     "normalization_context"={"groups"={"usersall:read"}},
+ *     "route_name"="connected",
+ *     },
  *     "get"={
- *     "security" = "is_granted('ROLE_AdminSysteme')",
- *     "denormalization_context"={"groups"={"user:edit"}},
- *     "security_message" = "vous n'avez pas accès a cette page",
+ *     "method"= "GET",
+ *     "path" = "/users/{id}",
+ *     "normalization_context"={"groups"={"user:read"}},
  *     },"put","delete",
  *     })
  * )
@@ -44,12 +50,13 @@ class User implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups ({"usersall:read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Groups ({"agence:write", "user:write", "profil:read", "transc:write"})
+     * @Groups ({"agence:write", "profil:read", "transc:write", "usersall:read"})
      */
     private $email;
 
@@ -58,43 +65,43 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
-     * @Groups ({"agence:write", "user:write"})
+     * @Groups ({"agence:write"})
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups ({"agence:write", "user:write", "profil:read", "transc:write"})
+     * @Groups ({"agence:write", "profil:read", "transc:write", "usersall:read"})
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups ({"agence:write", "user:write", "profil:read", "transc:write"})
+     * @Groups ({"agence:write", "profil:read", "transc:write", "usersall:read"})
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups ({"agence:write", "user:write", "profil:read", "transc:write"})
+     * @Groups ({"agence:write", "profil:read", "transc:write","usersall:read"})
      */
     private $numero;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups ({"agence:write", "user:write", "profil:read", "transc:write"})
+     * @Groups ({"agence:write",  "profil:read", "transc:write"})
      */
     private $CNI;
 
     /**
      * @ORM\Column(type="blob", nullable=true)
-     * @Groups ({"user:write"})
+     * @Groups ({"compte:read","usersall:read"})
      */
     private $avatar;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups ({"agence:write", "user:write", "profil:read", "transc:write"})
+     * @Groups ({"agence:write", "profil:read", "transc:write", "users:read"})
      */
     private $adresse;
 
@@ -105,13 +112,15 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity=Transaction::class, mappedBy="userDepot")
-     * @Groups ({"user:read", "transc:write"})
+     * @Groups ({"transc:write"})
+     * @ApiSubresource()
      */
     private $depots;
 
     /**
      * @ORM\OneToMany(targetEntity=Transaction::class, mappedBy="userRetrait")
-     * @Groups ({"user:read", "transc:write"})
+     * @Groups ({"transc:write"})
+     * @ApiSubresource()
      */
     private $retraits;
 
@@ -119,18 +128,20 @@ class User implements UserInterface
     /**
      * @ORM\ManyToOne(targetEntity=Profil::class, inversedBy="users")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups ({"agence:write", "user:write", "transc:write"})
+     * @Groups ({"agence:write", "transc:write"})
      */
     private $profil;
 
     /**
      * @ORM\ManyToOne(targetEntity=Agence::class, inversedBy="userAgence")
+     * @Groups ({"usersall:read"})
+     * @ApiSubresource ()
      */
     private $agenceUser;
 
     /**
      * @ORM\OneToMany(targetEntity=Compte::class, mappedBy="adminSyst")
-     * @Groups ({"user:edit", "user:read"})
+     * @Groups ({"usersall:read"})
      */
     private $comptes;
 
@@ -275,7 +286,11 @@ class User implements UserInterface
 
     public function getAvatar()
     {
-        return $this->avatar;
+        $avatar = $this->avatar;
+        if ($avatar) {
+            return (base64_encode(stream_get_contents($this->avatar)));
+        }
+        return $avatar;
     }
 
     public function setAvatar($avatar): self

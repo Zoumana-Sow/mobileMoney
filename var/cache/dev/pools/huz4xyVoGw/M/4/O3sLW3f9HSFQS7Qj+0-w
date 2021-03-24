@@ -33,20 +33,27 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 ],
             ],
             'groups' => [
-                2 => [
-                    'agence:write',
-                    'compte:read',
+                1 => [
+                    'allagences:read',
                 ],
                 [
                     'agence:write',
-                    'compte:read',
+                    'usersall:read',
+                    'allagences:read',
+                ],
+                [
+                    'agence:write',
+                    'usersall:read',
                 ],
                 5 => [
                     'agence:write',
                     'agence:edit',
                 ],
                 [
+                    'usersall:read',
                     'agence:write',
+                    'mestransac:read',
+                    'allagences:read',
                 ],
             ],
         ],

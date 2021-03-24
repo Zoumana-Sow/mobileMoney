@@ -12,9 +12,15 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass=TransactionRepository::class)
  * @ApiResource (
- *     normalizationContext={"groups"={"transc:read"}},
+ *     normalizationContext={"groups"={"transc:read", "commission:read"}},
  *     denormalizationContext={"groups"={"transc:write", "retrait:edit"}},
+ *      itemOperations={
+ *     "get_commission"={
+ *             "path"="/commission/{id}",
+ *               "method"= "GET",
  *
+ * },
+ *     }
  * )
  */
 class Transaction
@@ -28,19 +34,19 @@ class Transaction
 
     /**
      * @ORM\Column(type="integer")
-     * @Groups ({"transc:write", "transc:read"})
+     * @Groups ({"transc:write", "transc:read", "mestransac:read"})
      */
     private $montant;
 
     /**
      * @ORM\Column(type="date")
-     * @Groups ({"transc:write", "transc:read"})
+     * @Groups ({"transc:write", "transc:read", "commission:read", "mestransac:read"})
      */
     private $dateDepot;
 
     /**
      * @ORM\Column(type="date", nullable=true)
-     * @Groups ({"transc:write"})
+     * @Groups ({"transc:write", "commission:read", "mestransac:read"})
      */
     private $dateRetrait;
 
@@ -51,7 +57,7 @@ class Transaction
 
     /**
      * @ORM\Column(type="integer", nullable=false)
-     * @Groups ({"transc:write"})
+     * @Groups ({"transc:write","commission:read"})
      */
     private $fraisEnvoie;
 
@@ -75,7 +81,7 @@ class Transaction
 
     /**
      * @ORM\Column(type="string")
-     * @Groups ({"transc:write"})
+     * @Groups ({"transc:write", "transc:read"})
      */
     private $codeTransaction;
 

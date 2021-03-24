@@ -1,3 +1,31 @@
 <?php //subresource_operations_b00a043e610dbd9099f220f6dd6a596e
 
-return [PHP_INT_MAX, []];
+return [PHP_INT_MAX, [
+    'api_agences_compte_get_subresource' => [
+        'property' => 'compte',
+        'collection' => false,
+        'resource_class' => 'App\\Entity\\Compte',
+        'shortNames' => [
+            'Compte',
+            'Agence',
+        ],
+        'identifiers' => [
+            'id' => [
+                'App\\Entity\\Agence',
+                'id',
+                true,
+            ],
+        ],
+        'operation_name' => 'compte_get_subresource',
+        'route_name' => 'api_agences_compte_get_subresource',
+        'path' => '/agences/{id}/compte.{_format}',
+        'defaults' => [],
+        'requirements' => [],
+        'options' => [],
+        'host' => '',
+        'schemes' => [],
+        'condition' => '',
+        'controller' => null,
+        'stateless' => null,
+    ],
+]];
